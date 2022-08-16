@@ -12,10 +12,11 @@ unsigned int sort(std::vector<std::string>& source_words)
     unsigned int average_time = 0;
     unsigned int start_time, end_time;   
     int n = 5;
+    std::vector<std::string> words;
     for (int k = 0; k < n; k++)
     {
         start_time = clock();
-        std::vector<std::string> words = source_words;
+        words = source_words;
         for (int i = 1; i < words.size(); i++)
         {
             for (int j = i; j > 0; j--)
@@ -28,7 +29,7 @@ unsigned int sort(std::vector<std::string>& source_words)
         end_time = clock();
         average_time += end_time - start_time;
     }
-
+    source_words = words;
     return average_time / n;
 }
 
@@ -56,10 +57,10 @@ string get_number_file()
         << "    4. 12 стульев" << std::endl
         << "    5. Публицистический стиль" << std::endl
         << "    6. Обломов" << std::endl
-        << "    7. Тест (test)" << std::endl
-        << "    8. Булгаков (bulgakov)" << std::endl
-        << "    9. Шолохов (sholohov)" << std::endl
-        << "    10. Тест (test)" << std::endl
+        << "    7. Шолохов" << std::endl
+        << "    8. Отцы и дети" << std::endl
+        << "    9. Преступление и наказание" << std::endl
+        << "    10. Отцы и дети" << std::endl
         << std::endl
         << "Введите название файла с текстом: ";
 
@@ -71,10 +72,10 @@ string get_number_file()
         {"12 стульев", 4},
         {"Публицистический стиль", 5},
         {"Обломов", 6},
-        {"Есенин", 7},
-        {"Есенин", 8},
-        {"Есенин", 9},
-        {"Есенин", 10}
+        {"Шолохов", 7},
+        {"Отцы и дети", 8},
+        {"Преступление и наказание", 9},
+        {"Отцы и дети", 10}
     };
 
     while (true)
@@ -84,11 +85,11 @@ string get_number_file()
             exit(0);
 
         ifstream file_original; //создаем переменную файла
-        file_original.open("D:\\study_in_suai\\programming\\coursework\\texts\\original\\original_" + number_file + ".txt"); // открываем файл
+        file_original.open("D:\\courcework\\texts\\original\\original_" + number_file + ".txt"); // открываем файл
         
         if (file_original.is_open()) //если файл открылся 
         {
-            cout << "Вы выбрали " << text_names[stoi(number_file) - 1].first;
+            cout << "Вы выбрали " << text_names[stoi(number_file) - 1].first << endl;
             file_original.close(); // Закрытие файла
             break;
         }
@@ -104,7 +105,7 @@ string get_string(string number_file)
 {
     ifstream file_original;
 
-    file_original.open("D:\\study_in_suai\\programming\\coursework\\texts\\original\\original_" + number_file + ".txt"); // открываем файл
+    file_original.open("D:\\courcework\\texts\\original\\original_" + number_file + ".txt"); // открываем файл
 
     string source_string = "";
 
@@ -151,7 +152,7 @@ string alphabet()
 void writing_to_result(vector <string> words, string number_file)
 {
     ofstream file_result;
-    file_result.open("D:\\study_in_suai\\programming\\coursework\\texts\\result\\result_" + number_file + ".txt"); // открываем файл
+    file_result.open("D:\\courcework\\texts\\result\\result_" + number_file + ".txt"); // открываем файл
 
     for (int i = 0; i < words.size(); i++)
         file_result << words[i] << endl;
@@ -160,7 +161,7 @@ void writing_to_result(vector <string> words, string number_file)
 void writing_to_analysis(string source_string, int count, vector <int> count_words, int time, string number_file)
 {
     ofstream file_analysis;
-    file_analysis.open("D:\\study_in_suai\\programming\\coursework\\texts\\analysis\\analysis_" + number_file + ".txt"); // открываем файл
+    file_analysis.open("D:\\courcework\\texts\\analysis\\analysis_" + number_file + ".txt"); // открываем файл
 
     file_analysis
         << "Исходный текст: " << endl
