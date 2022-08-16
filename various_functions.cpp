@@ -62,7 +62,7 @@ string get_number_file()
         << "    9. Преступление и наказание" << std::endl
         << "    10. Отцы и дети" << std::endl
         << std::endl
-        << "Введите название файла с текстом: ";
+        << "Введите номер файла с текстом: ";
 
     vector <pair <string, int>> text_names =
     {
