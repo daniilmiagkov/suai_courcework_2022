@@ -139,10 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lab_1_3.cpp" />
-    <ClCompile Include="lab_2_1.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="main_2.cpp" />
     <ClCompile Include="various_functions.cpp" />
   </ItemGroup>
   <ItemGroup>
